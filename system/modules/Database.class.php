@@ -1,13 +1,13 @@
 <?php
 /**
-* Last Updated: 02-16-2012
-*
-* @author	Ian_M
-* @package	{package}
-* @version	1.0.0
-* @link		{link}
-*
-*/
+ * Last Updated: 02-16-2012
+ *
+ * @author	Ian_M
+ * @package	{package}
+ * @version	1.0.0
+ * @link	{link}
+ *
+ */
 
 class Database {
 
@@ -16,7 +16,7 @@ class Database {
 	private $lastQuery;
 
 	/**
-	 * Initiates a database link 
+	 * Initiates a database link
 	 * @param $host The databases host
 	 * @param $username The username to the database
 	 * @param $password The password to the username
@@ -58,11 +58,11 @@ class Database {
 	 */
 	function num_rows($query = NULL) {
 		if ($result == NULL)
-			return mysql_num_rows($this->lastQuery);
+		return mysql_num_rows($this->lastQuery);
 		else
-			return mysql_num_rows($query);
+		return mysql_num_rows($query);
 	}
-	
+
 	/**
 	 * Get the count of rows in a table, with or without a condition.
 	 * @param $table The table name where to check the count for
@@ -71,9 +71,9 @@ class Database {
 	function count($table, $where = NULL) {
 		$this->queryAmount++;
 		if ($where == NULL)
-			$query = mysql_query("SELECT COUNT(*) FROM `{$this->tablePrefix}{$table}`");
+		$query = mysql_query("SELECT COUNT(*) FROM `{$this->tablePrefix}{$table}`");
 		else
-			$query = mysql_query("SELECT COUNT(*) FROM `{$this->tablePrefix}{$table}` WHERE $where");
+		$query = mysql_query("SELECT COUNT(*) FROM `{$this->tablePrefix}{$table}` WHERE $where");
 		$result = mysql_fetch_row($query);
 		return $result[0];
 	}
@@ -81,8 +81,9 @@ class Database {
 	/**
 	 * @todo Add debugging..
 	 */
-	function debug() {}
-	
+	function debug() {
+	}
+
 	/**
 	 * @todo Rewrite this to debug the qeury even more
 	 */
@@ -97,6 +98,13 @@ class Database {
 	 */
 	function escape($string) {
 		return mysql_real_escape_string($string);
+	}
+
+	/**
+	 * Closes the connection to the mysql server
+	 */
+	function close() {
+		mysql_close();
 	}
 
 }
