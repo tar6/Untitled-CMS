@@ -85,7 +85,7 @@ class Database {
 	}
 
 	/**
-	 * @todo Rewrite this to debug the qeury even more
+	 * @todo Rewrite this to debug the query even more
 	 */
 	function debugAndDie($query) {
 		die("<p style=\"margin: 2px;\">".mysql_error()."</p></div>");
