@@ -38,7 +38,7 @@ define( "ROOT_PATH", str_replace( "\\", "/", dirname( __FILE__ ) ) . "/" );
 define( "ADMIN_PATH" , ROOT_PATH . ADMIN_DIRECTORY . "/" );
 
 /**
- * ADMIN_PATH
+ * PLUGINS_PATH
  * The path to where the plugins directory is located
  */
 define( "PLUGINS_PATH" , ROOT_PATH . PLUGINS_DIRECTORY . "/" );
