@@ -3,32 +3,20 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Untitled Document</title>
-<style type='text/css'>
 <?php 
-echo StyleManager::getCSS(array("style", "font"), StyleManager::$defaultTheme);
+echo "<style type='text/css'>" . StyleManager::getCSS(array("style", "font"), StyleManager::getCurrentTheme()) . "\n</style>\n";
+PluginManager::hook("head");
 ?>
-</style>
-<script src="themes/defaultTheme/js/style.js" type="text/javascript"></script>
 </head>
-<body onload="set_style_from_cookie()">
+<body>
 	<div class="container">
-		<div class="header">
-			<div class="logo">proCMS</div>
-			<div class="menu">
-				<ul>
-					<li><a href="#" class="active">Home</a></li>
-					<li><a href="#">Downloads</a></li>
-					<li><a href="#">Forum</a></li>
-					<li><a href="#">Contact</a></li>
-					<li><a href="#">Plugins</a></li>
-					<li><a href="#">Themes</a></li>
-				</ul>
-			</div>
-		</div>
+		<?php 
+		include($pageManager->path . "header.tpl.php");
+		?>
 
 		<div class="infobar">
-			<span class="loggedInAs">Logged in as Ian</span>
-			<span class="timeAndDate">18/02/2012 - 00:23</span>
+			<span class="loggedInAs">Logged in as {username}</span>
+			<span class="timeAndDate">{time}</span>
 		</div>
 
 		<div class="contentLeft">

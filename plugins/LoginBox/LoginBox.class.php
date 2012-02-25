@@ -1,9 +1,6 @@
 <?php
 class LoginBox {
-	/**
-	 * Does nothing because globalHook isn't anywhere :P
-	 */
-	function globalHook() {
+	function head() {
 		echo <<<EOF
 <style type='text/css'>
 #stickymsg {
@@ -47,6 +44,6 @@ class LoginBox {
 </div>
 EOF;
 	}
-	
+
 }
 ?>

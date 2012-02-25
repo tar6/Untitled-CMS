@@ -1,6 +1,6 @@
 <?php
 /**
- * Last Updated: 02-24-2012
+ * Last Updated: 02-25-2012
  *
  * @author	Joshua_F
  * @package	Shadow CMS
@@ -22,7 +22,7 @@ class PageManager {
 		if (!file_exists($this->page))
 			$this->page = $this->path . "404.tpl.php";
 	}
-
+	
 }
 
 ?>

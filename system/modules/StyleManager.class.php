@@ -53,6 +53,10 @@ class StyleManager {
 		return $result['id'];
 	}
 	
+	static function getCurrentTheme() {
+		return StyleManager::$defaultTheme;
+	}
+	
 }
 
 ?>
