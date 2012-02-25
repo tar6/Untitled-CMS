@@ -3,9 +3,9 @@
  * Last Updated: 02-16-2012
  *
  * @author	Joshua_F
- * @package	{package}
+ * @package	Shadow CMS
  * @version	1.0.0
- * @link	{link}
+ * @link	http://shadowscripts.net
  *
  */
 
@@ -18,7 +18,6 @@ $database = new Database($INFO['sql_host'], $INFO['sql_username'], $INFO['sql_pa
 $pluginManager = new PluginManager($database);
 $pluginManager->init(PLUGINS_PATH);
 $database->close();
-
 exit();
 
 ?>

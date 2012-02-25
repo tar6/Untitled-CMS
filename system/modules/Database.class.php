@@ -3,9 +3,9 @@
  * Last Updated: 02-16-2012
  *
  * @author	Ian_M
- * @package	{package}
+ * @package	Shadow CMS
  * @version	1.0.0
- * @link	{link}
+ * @link	http://shadowscripts.net
  *
  */
 
