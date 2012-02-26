@@ -27,7 +27,7 @@ class Database {
 		$this->queryAmount = 0;
 		$this->tablePrefix = $prefix;
 		$this->lastQuery = NULL;
-		mysql_connect($host, $username, $password) or die("Cannot connect with the username ".$user);
+		mysql_connect($host, $username, $password) or die("Cannot connect with the username ".$username);
 		mysql_select_db($database) or die("The selected database '".$database."' is unavailable");
 	}
 
