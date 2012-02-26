@@ -2,17 +2,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Untitled Document</title>
-<?php 
-echo "<style type='text/css'>" . StyleManager::getCSS(array("style", "font"), StyleManager::getCurrentTheme()) . "\n</style>\n";
-PluginManager::hook("head");
-?>
+<title>{title}</title>
+<link rel="stylesheet" type="text/css" href="{styleDirectory}/{styleName}/css/style.css" />
+<?php PluginManager::hook("head"); ?>
 </head>
 <body>
 	<div class="container">
-		<?php 
-		include($pageManager->path . "header.tpl.php");
-		?>
+		<?php PageManager::getHeader(); ?>
 
 		<div class="infobar">
 			<span class="loggedInAs">Logged in as {username}</span>
@@ -94,10 +90,6 @@ PluginManager::hook("head");
 			<h1>Search</h1>
 		</div>
 	</div>
-	<div class="footer">
-		<div class="footerLeft">test</div>
-		<div class="footerCenter">test</div>
-		<div class="footerRight">test</div>
-	</div>
+	<?php PageManager::getFooter(); ?>
 </body>
 </html>

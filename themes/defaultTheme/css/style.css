@@ -1,0 +1,145 @@
+body {
+	background-color: #efefef;
+	margin: 0;
+	border: 0;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+}
+
+a {
+	text-decoration: none;
+}
+
+.container {
+	width: 1200px;
+	margin: 0 auto;
+	background-color: #fff;
+	overflow: auto;
+}
+
+.container .header {
+	background-color: #de0101;
+	width: 100%;
+	margin: 0 auto;
+	overflow: auto;
+}
+
+.container .header .logo {
+	font-family: logo;
+	font-size: 48pt;
+	color: #fff;
+	max-width: auto;
+	padding: 20px;
+	float: left;
+}
+
+.container .header ul {
+	width: 500px;
+	float: right;
+	padding-top: 40px;
+	text-align: right;
+	list-style: none;
+	float: right;
+}
+
+.container .header ul a {
+	font-size: 14px;
+	color: #fff;
+	list-style: none;
+	border-radius: 5px 5px 5px 5px;
+	-moz-border-radius: 5px 5px 5px 5px;
+	-webkit-border-radius: 5px 5px 5px 5px;
+	background-color: #de0101;
+	float: left;
+	padding: 10px;
+	margin-right: 5px;
+}
+
+.container .header ul li a:hover,.container .header ul a.active {
+	border-radius: 5px 5px 5px 5px;
+	-moz-border-radius: 5px 5px 5px 5px;
+	-webkit-border-radius: 5px 5px 5px 5px;
+	background-color: #c00000;
+	list-style: none;
+	float: left;
+	padding: 10px;
+}
+
+.container .infobar {
+	background-color: #950000;
+	overflow: auto;
+	color: #fff;
+	font-size: 14px;
+	padding: 5px;
+}
+
+.container .loggedInAs {
+	float: left;
+}
+
+.container .timeAndDate {
+	float: right;
+}
+
+.container .contentLeft,.container .contentRight {
+	background-color: #fff;
+	padding: 20px;
+}
+
+.container .contentLeft {
+	width: 800px;
+	float: left;
+}
+
+.container .contentRight {
+	width: 300px;
+	float: right;
+}
+
+h1 {
+	font-family: beb;
+	font-size: 30px;
+	color: #515151;
+	border-bottom: #e1e1e1 1px solid;
+}
+
+p .searchbox {
+	background: url(themes/defaultTheme/images/magnifier.png) no-repeat 3%;
+	border: 1px #eeeeee solid;
+	padding: 5px 5px 5px 10px;
+	text-indent: 15px;
+	width: 200px;
+	text-indent: 25px;
+}
+
+.footer {
+	width: 1200px;
+	margin: 0 auto;
+	border-top: 1px #eeeeee solid;
+	min-height: 200px;
+	background: #cd7777;
+}
+
+.footer .footerLeft {
+	width: 33%;
+	float: left;
+	text-align: center;
+	padding-top: 25px;
+	padding-bottom: 30px;
+}
+
+.footer .footerCenter {
+	width: 33%;
+	float: left;
+	text-align: center;
+	padding-top: 25px;
+	padding-bottom: 30px;
+}
+
+.footer .footerRight {
+	width: 33%;
+	float: right;
+	text-align: center;
+	padding-top: 25px;
+	padding-bottom: 30px;
+}

@@ -1,5 +1,5 @@
 <div class="header">
-	<div class="logo">Shadow CMS</div>
+	<div class="logo">{title}</div>
 	<div class="menu">
 		<ul>
 			<li><a href="#" class="active">Home</a></li>

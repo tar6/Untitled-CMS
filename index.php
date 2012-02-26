@@ -13,16 +13,29 @@ include("./initdata.php");
 include(ROOT_PATH . "system/config.php");
 include(ROOT_PATH . "system/modules/Database.class.php");
 include(ROOT_PATH . "system/modules/PluginManager.class.php");
-include(ROOT_PATH . "system/modules/StyleManager.class.php");
 include(ROOT_PATH . "system/modules/PageManager.class.php");
 
 $database		= new Database($INFO['sql_host'], $INFO['sql_username'], $INFO['sql_password'], $INFO['sql_database']);
 $pluginManager	= new PluginManager($database);
-$styleManager	= new StyleManager($database, STYLE_PATH);
-$pageManager	= new PageManager($_GET['page'], ROOT_PATH);
+$pageManager	= new PageManager();
+$vars			= array(
+						"title",
+						"time",
+						"styleDirectory",
+						"styleName"
+						);
+$content		= array(
+						"Shadow CMS",
+						date("F d, Y "),
+						STYLE_DIRECTORY,
+						"defaultTheme"
+						);
 
 $pluginManager->init(PLUGINS_PATH);
-include($pageManager->page);
+$pageManager->load(preg_replace("'(\r|\n)'", "", $_GET['page']));
+$pageManager->set($vars, $content);
+$pageManager->publish();
+
 $database->close();
 
 exit();
