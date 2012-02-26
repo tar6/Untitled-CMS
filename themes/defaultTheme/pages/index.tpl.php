@@ -4,11 +4,13 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>{title}</title>
 <link rel="stylesheet" type="text/css" href="{styleDirectory}/{styleName}/css/style.css" />
+<link rel="stylesheet" type="text/css" href="{styleDirectory}/{styleName}/css/font.css" />
 <?php PluginManager::hook("head"); ?>
 </head>
+<?php PluginManager::hook("beforeBody"); ?>
 <body>
 	<div class="container">
-		<?php PageManager::getHeader(); ?>
+		<?php PageManager::load("header"); ?>
 
 		<div class="infobar">
 			<span class="loggedInAs">Logged in as {username}</span>
@@ -80,16 +82,9 @@
 				ac diam ligula. Quisque ac egestas purus. Nam varius aliquam
 				dapibus. Aliquam erat volutpat.</p>
 		</div>
-		<div class="contentRight">
-			<h1>Search</h1>
-			<p>
-				<input type="text" maxlength="50" class="searchbox" />
-			</p>
-		</div>
-		<div class="contentRight">
-			<h1>Search</h1>
-		</div>
+		<?php PageManager::load("side"); ?>
 	</div>
-	<?php PageManager::getFooter(); ?>
+	<?php PageManager::load("footer"); ?>
 </body>
+<?php PluginManager::hook("afterBody"); ?>
 </html>

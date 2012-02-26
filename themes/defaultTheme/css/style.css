@@ -104,7 +104,7 @@ h1 {
 }
 
 p .searchbox {
-	background: url(themes/defaultTheme/images/magnifier.png) no-repeat 3%;
+	background: url(../images/magnifier.png) no-repeat 3%;
 	border: 1px #eeeeee solid;
 	padding: 5px 5px 5px 10px;
 	text-indent: 15px;

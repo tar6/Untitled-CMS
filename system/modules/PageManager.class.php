@@ -11,35 +11,53 @@
 
 class PageManager {
 
-	public $template;
-	public $styleName;
+	static public $template;
+	static public $styleDirectory;
+	static public $styleName;
+	static public $vars;
+	static public $content;
 
-	function load($page, $styleName = "defaultTheme") {
-		if (empty($page))
-			$page = "index";
-		if (!file_exists("pages/" . $page . ".tpl.php"))
-			$page = "404";
-		$this->template = file_get_contents("pages/" . $page . ".tpl.php");
-		$this->styleName = $styleName;
-	}
-
-	function set($var, $content) {
-		if (count($var) != count($content))
-			die("Missmatching replacements!");
-		for ($i = 0; $i < count($var); $i++)
-			$this->template = str_replace("{".$var[$i]."}", $content[$i], $this->template);
-	}
-
-	static function getHeader() {
-		echo file_get_contents("pages/header.tpl.php");
+	function __construct($styleDirectory, $styleName, $vars, $content) {
+		PageManager::$styleDirectory = $styleDirectory . "/";
+		PageManager::$styleName = $styleName;
+		PageManager::$vars = $vars;
+		PageManager::$content = $content;
 	}
 	
-	static function getFooter() {
-		echo file_get_contents("pages/footer.tpl.php");
+	/**
+	 * Loads a page from the theme directory
+	 * @param $page The page to load
+	 * @param $type The page type, 0 = inpage content, 1 = the page it's self
+	 */
+	static function load($page, $type = 0) {
+		if (empty($page))
+			$page = "index";
+		if (!file_exists(PageManager::$styleDirectory . PageManager::$styleName . "/pages/" . $page . ".tpl.php"))
+			$page = "404";
+		PageManager::$template = file_get_contents(PageManager::$styleDirectory . PageManager::$styleName . "/pages/" . $page . ".tpl.php");
+		PageManager::set();
+		PageManager::publish($type);
+	}
+	
+	/**
+	 * Sets phasers to be replaced with the correct thing
+	 */
+	static function set() {
+		if (count(PageManager::$vars) != count(PageManager::$content))
+			die("Missmatching replacements!");
+		for ($i = 0; $i < count(PageManager::$vars); $i++)
+			PageManager::$template = str_replace("{".PageManager::$vars[$i]."}", PageManager::$content[$i], PageManager::$template);
 	}
 
-	function publish() {
-		eval("?>".$this->template."<?");
+	/**
+	 * Displays the page
+	 * @param $type
+	 */
+	static function publish($type) {
+		if ($type == 1)
+		eval("?>".PageManager::$template."<?");
+		else
+		echo PageManager::$template;
 	}
 
 }

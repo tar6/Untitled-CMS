@@ -1,6 +1,6 @@
 <?php
 /**
- * Last Updated: 02-25-2012
+ * Last Updated: 02-26-2012
  *
  * @author	Joshua_F
  * @package	Shadow CMS
@@ -17,7 +17,6 @@ include(ROOT_PATH . "system/modules/PageManager.class.php");
 
 $database		= new Database($INFO['sql_host'], $INFO['sql_username'], $INFO['sql_password'], $INFO['sql_database']);
 $pluginManager	= new PluginManager($database);
-$pageManager	= new PageManager();
 $vars			= array(
 						"title",
 						"time",
@@ -31,10 +30,10 @@ $content		= array(
 						"defaultTheme"
 						);
 
+new PageManager(STYLE_DIRECTORY, "defaultTheme", $vars, $content);
+
 $pluginManager->init(PLUGINS_PATH);
-$pageManager->load(preg_replace("'(\r|\n)'", "", $_GET['page']));
-$pageManager->set($vars, $content);
-$pageManager->publish();
+PageManager::load(preg_replace("'(\r|\n)'", "", $_GET['page']), 1);
 
 $database->close();
 
