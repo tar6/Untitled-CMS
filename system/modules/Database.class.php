@@ -57,7 +57,7 @@ class Database {
 	 * @return The number of rows
 	 */
 	function num_rows($query = NULL) {
-		if ($result == NULL)
+		if ($query == NULL)
 		return mysql_num_rows($this->lastQuery);
 		else
 		return mysql_num_rows($query);
